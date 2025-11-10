@@ -3,7 +3,7 @@ package mitarbeiter;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Mitarbeiter{
+public abstract class Mitarbeiter implements Comparable<Mitarbeiter> {
     private int id;
     private String name;
     protected static List<Integer> idListe = new ArrayList<>();
@@ -43,4 +43,10 @@ public abstract class Mitarbeiter{
     public String toString(){
         return "ID: " +getId()+ ", Name: " +getName()+ ", Einkommen: " +einkommen()+ " €";
     }
+    //  Hier implementieren wir das Interface Comparable
+    @Override
+    public int compareTo(Mitarbeiter anderer) {
+        // Sortierung nach Name (alphabetisch)
+        return this.name.compareToIgnoreCase(anderer.name);
 }
+
