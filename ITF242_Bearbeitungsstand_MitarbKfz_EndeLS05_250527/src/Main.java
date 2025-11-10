@@ -47,5 +47,27 @@ public class Main {
         bus1.fahrenNachPosition(new GPSPosition(12, 46), 45);
 
         hbmg_gmbh.unternehmensInfo();
+        //Code Stand 27.05.25
+
+        List<Mitarbeiter> liste = new ArrayList<>();
+
+        // Beispiel-Unterklasse Angestellter
+        liste.add(new Angestellter(1001, "Klara", 3000));
+        liste.add(new Angestellter(1002, "Ben", 2800));
+        liste.add(new Angestellter(1003, "Anna", 3500));
+
+        System.out.println("Sortierung nach Name (Comparable):");
+        Collections.sort(liste);
+        for (Mitarbeiter m : liste) {
+            System.out.println(m);
+        }
+
+        //  Sortierung nach Einkommen mit Comparator
+        Mitarbeiter.MitarbeiterComparator mc = new Mitarbeiter.MitarbeiterComparator();
+        Collections.sort(liste, mc);
+
+        System.out.println("\nSortierung nach Einkommen (Comparator):");
+        for (Mitarbeiter m : liste) {
+            System.out.println(m);
     }
 }
